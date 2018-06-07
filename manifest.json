@@ -2,7 +2,7 @@
 
   "manifest_version": 2,
   "name": "Simple Tab Exporter",
-  "version": "1.0",
+  "version": "1.0.1",
 
   "description": "This add-on create a list of opened tabs which can be emailed for backup purposes",
 
@@ -14,12 +14,6 @@
     "scripts": ["listener.js"]
   },
 
-  "permissions": ["activeTab", "tabs"],
-
-  "applications": {
-    "gecko": {
-       "id": "troid16"
-    }
- },
+  "permissions": ["activeTab", "tabs"]
 
 }

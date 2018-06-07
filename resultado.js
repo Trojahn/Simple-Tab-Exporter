@@ -4,6 +4,7 @@
 	}
 	window.hasRun = true;
 
+
 	function trabalharAbas(abas) {
 		var mail = "mailto:?subject=Simple Tab Exporter&body=Those are the tabs exported by 'Simple Tab Exporter':"
 		for (let aba of abas) {
@@ -20,6 +21,18 @@
 		elem.href = mail;
 	}
 
-	var abas = browser.tabs.query({currentWindow: true});
-	abas.then(trabalharAbas);
+	function ativar(tab) {
+		if (typeof tab !== 'undefined' && tab.length > 0) {
+			tab[0].active = true;
+		}
+	}
+
+	function reativarAbas(num) {
+		for (var i=0; i < num; i++) {
+			browser.tabs.query({index: i}).then(ativar);
+		}			
+	}
+
+	reativarAbas(50);
+	browser.tabs.query({currentWindow: true}).then(trabalharAbas);
 })();
